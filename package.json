@@ -17,7 +17,7 @@
     "url": "https://github.com/wafuwafu13/GitHub-Actions-PlayGround/issues"
   },
   "homepage": "https://github.com/wafuwafu13/GitHub-Actions-PlayGround#readme",
-  "dependencies": {
+  "devDependencies": {
     "shelljs": "^0.8.4"
   }
 }
