@@ -1,0 +1,23 @@
+{
+  "name": "github-actions-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wafuwafu13/GitHub-Actions-PlayGround.git"
+  },
+  "keywords": [],
+  "author": "wafuwafu13 <mariobaske@i.softbank.jp> (https://wafuwafu13.hateblo.jp/entry/wafuwafuportfolio)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wafuwafu13/GitHub-Actions-PlayGround/issues"
+  },
+  "homepage": "https://github.com/wafuwafu13/GitHub-Actions-PlayGround#readme",
+  "dependencies": {
+    "shelljs": "^0.8.4"
+  }
+}
