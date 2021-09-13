@@ -1,9 +1,16 @@
-name: Hello World!
+name: Script Test
 on: push
 
 jobs:
-  build:
-    name: Greeting
+  unit-test:
+    name: Run script/test
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, World!" 
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Set Node.js 12.x
+        uses: actions/setup-node@v1.3.0
+        with:
+          node-version: 12.x
+      - name: Test
+        run: node script/test/check.js  
