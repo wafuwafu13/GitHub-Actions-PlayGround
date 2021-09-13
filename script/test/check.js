@@ -1,5 +1,5 @@
 const { exit } = require("shelljs");
-const process = require("process")
+import { exit } from 'process';
 
 if (1 < 2) {
   console.error("This error is critical");
