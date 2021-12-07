@@ -1,0 +1,17 @@
+on:
+  push:
+    paths:
+      - 'ruby/*'
+
+jobs:
+  hello:
+    name: hello
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Hello World
+        uses: actions/checkout@v1
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - run: ruby index.rb
+      - working-directory: ./ruby
