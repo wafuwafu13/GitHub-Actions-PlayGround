@@ -6,7 +6,7 @@ jobs:
     name: hello
     strategy:
       matrix:
-        ruby: [2.5, 2.7, 3.0]
+        ruby: [2.5, 2.7, '3.0']
     runs-on: ubuntu-latest
     steps:
       - name: CheckOut
