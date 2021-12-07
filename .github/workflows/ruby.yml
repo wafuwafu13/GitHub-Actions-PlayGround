@@ -1,7 +1,5 @@
-on:
-  push:
-    paths:
-      - 'ruby/*'
+name: Run Ruby
+on: push
 
 jobs:
   hello:

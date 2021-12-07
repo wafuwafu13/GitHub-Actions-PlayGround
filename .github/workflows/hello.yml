@@ -1,7 +1,5 @@
-on:
-  push:
-    paths:
-      - 'script/*'
+name: Script Test
+on: push
 
 jobs:
   unit-test:
