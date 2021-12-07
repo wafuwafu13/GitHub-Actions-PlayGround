@@ -9,7 +9,7 @@ jobs:
       - name: CheckOut
         uses: actions/checkout@v1
       - name: Set Ruby  
-      - uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7
       - name: Run Ruby
