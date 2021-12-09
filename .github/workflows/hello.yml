@@ -3,6 +3,7 @@ on:
   push:
     paths:
     - 'script/**'
+    - '.github/workflows/hello.yml'
 
 jobs:
   unit-test:
