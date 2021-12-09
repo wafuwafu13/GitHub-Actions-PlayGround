@@ -5,4 +5,4 @@ if (1 > 2) {
   process.exitCode = 1;
 }
 
-console.log('some process...')
+console.log('...some process...')
