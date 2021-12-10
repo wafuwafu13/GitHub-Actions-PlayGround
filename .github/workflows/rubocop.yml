@@ -22,10 +22,12 @@ jobs:
         run: bundle install
         working-directory: rubocop
       - name: Run rubocop
-        uses: reviewdog/action-rubocop@v2
+        uses: reviewdog/action-rubocop@v1
         with:
           workdir: rubocop
           fail_on_error: true
           reporter: github-check
           rubocop_version: 1.23.0
           rubocop_extensions: rubocop-rspec:gemfile 
+          github_token: ${{ secrets.github_token }}
+
