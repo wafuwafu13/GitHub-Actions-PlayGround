@@ -14,3 +14,5 @@ jobs:
       - name: run shell
         run: ./index.sh
         working-directory: shell
+        env:
+          FLAG: true
