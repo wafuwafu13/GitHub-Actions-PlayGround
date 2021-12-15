@@ -1,0 +1,14 @@
+name: Shell
+on: 
+  push:
+    paths:
+    - 'shell/**'
+    - '.github/workflows/shell.yml'
+
+jobs:
+  unit-test:
+    name: Run shell
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        run: ./shell/index.sh
