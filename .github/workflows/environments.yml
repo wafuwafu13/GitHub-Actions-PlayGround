@@ -1,0 +1,19 @@
+name: Environment
+on: 
+  push:
+    paths:
+    - 'environment/**'
+    - '.github/workflows/environments.yml'
+
+jobs:
+  development-development:
+    runs-on: ubuntu-latest
+    steps:
+      - name: development echo
+        run: echo "hello development"
+  deployment-production:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: production echo
+        run: echo "hello production"
