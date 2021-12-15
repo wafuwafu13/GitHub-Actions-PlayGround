@@ -15,5 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: production echo
-        run: echo "hello production"
+      - name: Set Node.js 12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+      - name: production copy
+        run: node index.js
+        working-directory: environment
