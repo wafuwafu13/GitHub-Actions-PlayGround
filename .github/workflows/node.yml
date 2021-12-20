@@ -17,4 +17,5 @@ jobs:
         with:
           node-version: '14'
       - name: Run node
-        run: node script/test/check.js  
+        run: node check.js
+        working-directory: node
