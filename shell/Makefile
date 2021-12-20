@@ -1,4 +1,4 @@
-export ENV_NAME=
+ENV_NAME=
 
 .PHONY: index
 index:
