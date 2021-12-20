@@ -15,4 +15,4 @@ jobs:
         run: ./index.sh
         working-directory: shell
         env:
-          FLAG: true
+          ENV_NAME: foobar
