@@ -1,22 +1,19 @@
-name: Environment
+name: Jest
 on: 
   push:
     paths:
-    - 'environment/**'
-    - '.github/workflows/environments.yml'
+    - 'jest/**'
+    - '.github/workflows/jest.yml'
 
 jobs:
-  development-development:
+  jest:
     runs-on: ubuntu-latest
-    steps:
-      - name: development echo
-        run: echo "hello development"
-  deployment-production:
-    runs-on: ubuntu-latest
-    environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v2.0.0
-      - name: production copy
-        run: cp test.txt copy.txt
-        working-directory: environment
+      - name: install
+        run: npm install
+        working-directory: jest
+      - name: run jest
+        run: npm run test
+        working-directory: jest
