@@ -9,6 +9,7 @@ jobs:
   unit-test:
     name: Run script/test
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: Checkout
         uses: actions/checkout@v2.0.0
