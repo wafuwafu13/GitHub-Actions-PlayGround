@@ -11,6 +11,7 @@ jobs:
   unit-test:
     name: Run Jest
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v2.0.0
