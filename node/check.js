@@ -1,6 +1,6 @@
 const process = require('process');
 
-if (1 > 2) {
+if (true) {
   console.error("This error is critical");
   process.exitCode = 1;
 }
