@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: run shell
-        run: ./index.sh
+        run: make index
         working-directory: shell
         env:
           ENV_NAME: foobar
