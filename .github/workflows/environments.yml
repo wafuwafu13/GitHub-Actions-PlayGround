@@ -1,0 +1,22 @@
+name: Environment
+on: 
+  push:
+    paths:
+    - 'environment/**'
+    - '.github/workflows/environments.yml'
+
+jobs:
+  development-development:
+    runs-on: ubuntu-latest
+    steps:
+      - name: development echo
+        run: echo "hello development"
+  deployment-production:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: production copy
+        run: cp test.txt copy.txt
+        working-directory: environment
