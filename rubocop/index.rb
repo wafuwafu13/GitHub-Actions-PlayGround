@@ -1,3 +1,3 @@
-if (2 > 1)   
-  p 'rubocop!!!!'
-end
+# frozen_string_literal: true
+
+p 'rubocop!!!!' if 2 > 1
