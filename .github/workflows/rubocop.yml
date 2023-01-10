@@ -1,10 +1,15 @@
 name: Rubocop
-on: 
-  push:
-    paths:
-    - 'rubocop/**'
-    - '.github/workflows/rubocop.yml'
 
+# on:
+#   push:
+#     paths:
+#     - 'rubocop/**'
+#     - '.github/workflows/rubocop.yml'
+
+on:
+  pull_request:
+    branches:
+      - "**"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,12 +27,12 @@ jobs:
         run: bundle install
         working-directory: rubocop
       - name: Run rubocop
-        uses: reviewdog/action-rubocop@v1
+        # uses: reviewdog/action-rubocop@v1
+        uses: Slike9/action-rubocop@fix-rdjson-formatter-original-output
         with:
           workdir: rubocop
           fail_on_error: true
           reporter: github-check
-          rubocop_version: 1.23.0
-          rubocop_extensions: rubocop-rspec:gemfile 
+          # reporter: github-pr-review
           github_token: ${{ secrets.github_token }}
 
