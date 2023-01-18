@@ -6,9 +6,22 @@ on:
     - '.github/workflows/go.yml'
 
 jobs:
-  unit-test:
+  unit-test-ubuntu:
     name: Run go
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.0.0
+      - name: Set Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.17.x'
+      - name: Run go
+        run: go run main.go
+        working-directory: go
+  unit-test-win:
+    name: Run go
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2.0.0
