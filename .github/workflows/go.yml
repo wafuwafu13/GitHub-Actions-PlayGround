@@ -7,7 +7,7 @@ on:
 
 jobs:
   unit-test-ubuntu:
-    name: Run go
+    name: Run go(unix)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,7 +20,7 @@ jobs:
         run: go run main.go
         working-directory: go
   unit-test-win:
-    name: Run go
+    name: Run go(win)
     runs-on: windows-latest
     steps:
       - name: Checkout
