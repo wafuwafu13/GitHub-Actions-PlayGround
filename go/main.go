@@ -2,26 +2,35 @@ package main
 
 import (
 	"fmt"
-	"os/exec"
-)
-
-const (
-	gen_cert_script = "./gen-cert.sh"
+	"github.com/miekg/dns"
+	"net"
+	"strconv"
 )
 
 func main() {
-	err := exec.Command("chmod", "777", gen_cert_script).Run()
+	conf, err := dns.ClientConfigFromFile("/etc/resolv.conf")
+	if err != nil {
+		fmt.Printf("%+v \n", err)
+	}
+	fmt.Printf("%+v \n", conf)
+	fmt.Println("=========================")
+
+	nameserver := conf.Servers[0]
+	nameserver = net.JoinHostPort(nameserver, strconv.Itoa(53))
+
+	c := new(dns.Client)
+	m := &dns.Msg{
+		MsgHdr: dns.MsgHdr{
+			Opcode:            dns.OpcodeQuery,
+		},
+		Question: []dns.Question{{Name: dns.Fqdn("hatenablog.com"), Qtype: dns.TypeA, Qclass: uint16(dns.ClassINET)}},
+	}
+	r, _, err := c.Exchange(m, nameserver)
 
 	if err != nil {
-		fmt.Printf("Failed to chmod: %s", err)
+		fmt.Println(err)
 	}
-
-	err = exec.Command("sh", "-c", gen_cert_script).Run()
-	if err != nil {
-		fmt.Printf("Failed to run: %s", err)
-	}
-
-	out, err := exec.Command("ls").Output()
-	fmt.Printf("%s", out)
+	fmt.Printf("%v", r)
+	fmt.Println("=========================")
+	fmt.Printf("%+v \n", r.Answer)
 }
-
