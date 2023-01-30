@@ -10,7 +10,7 @@ import (
 func main() {
 	conf, err := dns.ClientConfigFromFile("/etc/resolv.conf")
 	if err != nil {
-		fmt.Printf("%+v \n", err)
+		fmt.Printf("err: %+v \n", err)
 	}
 	fmt.Printf("%+v \n", conf)
 	fmt.Println("=========================")
