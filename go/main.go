@@ -39,13 +39,7 @@ func adapterAddresses() ([]*windows.IpAdapterAddresses, error) {
 }
 
 func main() {
-	conf, err := dns.ClientConfigFromFile("/etc/resolv.conf")
-	if err != nil {
-		fmt.Printf("err: %+v \n", err)
-	}
-	fmt.Printf("%+v \n", conf)
-	fmt.Println("=========================")
-
+	var nameserver string
 	if runtime.GOOS == "windows" {
 		servers, err := adapterAddresses()
 		if err != nil {
@@ -57,9 +51,14 @@ func main() {
       // fec0:0:0:ffff::1 
       // fec0:0:0:ffff::1 
 		}
+		nameserver = servers[0].FirstDnsServerAddress.Address.IP().String()
+	} else {
+		conf, err := dns.ClientConfigFromFile("/etc/resolv.conf")
+	  if err != nil {
+	  	fmt.Printf("err: %+v \n", err)
+	  }
+		nameserver = conf.Servers[0]
 	}
-
-	nameserver := conf.Servers[0]
 	nameserver = net.JoinHostPort(nameserver, strconv.Itoa(53))
 
 	c := new(dns.Client)
