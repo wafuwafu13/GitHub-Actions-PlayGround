@@ -63,7 +63,7 @@ func main() {
 	}
 	// nameserver = "8.8.8.8"
 	nameserver = net.JoinHostPort(nameserver, strconv.Itoa(53))
-	fmt.Printf("env -> %v", os.Getenv("RUN_TEST_ON_GITHUB_ACTIONS"))
+	fmt.Printf("env -> %v \n", os.Getenv("RUN_TEST_ON_GITHUB_ACTIONS"))
 	fmt.Printf("nameserver -> %s \n", nameserver)
 
 	c := new(dns.Client)

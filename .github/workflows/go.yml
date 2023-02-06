@@ -5,6 +5,9 @@ on:
     - 'go/**'
     - '.github/workflows/go.yml'
 
+env:
+  RUN_TEST_ON_GITHUB_ACTIONS: 1
+
 jobs:
   unit-test-ubuntu:
     name: Run go(unix)
