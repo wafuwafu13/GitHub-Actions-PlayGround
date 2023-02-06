@@ -67,7 +67,7 @@ func main() {
 		MsgHdr: dns.MsgHdr{
 			Opcode:            dns.OpcodeQuery,
 		},
-		Question: []dns.Question{{Name: dns.Fqdn("hatenablog.com"), Qtype: dns.TypeA, Qclass: uint16(dns.ClassINET)}},
+		Question: []dns.Question{{Name: dns.Fqdn("example.com"), Qtype: dns.TypeA, Qclass: uint16(dns.ClassINET)}},
 	}
 	r, _, err := c.Exchange(m, nameserver)
 
