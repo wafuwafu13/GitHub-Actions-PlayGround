@@ -59,8 +59,9 @@ func main() {
 	  }
 		nameserver = conf.Servers[0]
 	}
-	nameserver = "8.8.8.8"
+	// nameserver = "8.8.8.8"
 	nameserver = net.JoinHostPort(nameserver, strconv.Itoa(53))
+	fmt.Printf("nameserver -> %s \n", nameserver)
 
 	c := new(dns.Client)
 	m := &dns.Msg{
@@ -74,7 +75,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Printf("%v", r)
+	fmt.Printf("r -> %v", r)
 	fmt.Println("=========================")
-	fmt.Printf("%+v \n", r.Answer)
+	fmt.Printf("r.Answer -> %+v \n", r.Answer)
 }
