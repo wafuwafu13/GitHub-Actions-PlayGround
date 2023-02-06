@@ -61,7 +61,7 @@ func main() {
 	  }
 		nameserver = conf.Servers[0]
 	}
-	// nameserver = "8.8.8.8"
+	nameserver = "8.8.8.8"
 	nameserver = net.JoinHostPort(nameserver, strconv.Itoa(53))
 	fmt.Printf("env -> %v \n", os.Getenv("RUN_TEST_ON_GITHUB_ACTIONS"))
 	fmt.Printf("nameserver -> %s \n", nameserver)
@@ -71,7 +71,7 @@ func main() {
 		MsgHdr: dns.MsgHdr{
 			Opcode:            dns.OpcodeQuery,
 		},
-		Question: []dns.Question{{Name: dns.Fqdn("example.com"), Qtype: dns.TypeA, Qclass: uint16(dns.ClassINET)}},
+		Question: []dns.Question{{Name: dns.Fqdn("exampleee.com"), Qtype: dns.TypeA, Qclass: uint16(dns.ClassINET)}},
 	}
 	r, _, err := c.Exchange(m, nameserver)
 
